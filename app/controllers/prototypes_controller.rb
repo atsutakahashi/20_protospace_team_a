@@ -22,6 +22,12 @@ class PrototypesController < ApplicationController
   def show
   end
 
+  def destroy
+  end
+
+  def edit
+  end
+
   private
 
   def set_prototype

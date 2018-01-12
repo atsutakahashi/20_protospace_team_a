@@ -27,6 +27,8 @@ class PrototypesController < ApplicationController
   end
 
   def edit
+    @protype_image = CapturedImage.find(params[:id])
+    @protype_image.content.cache! unless @prototype_image.blank?
   end
 
   def update

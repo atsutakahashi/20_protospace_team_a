@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :set_prototype, only: :show
+  before_action :set_prototype, only: [:show, :edit, :update, :destroy]
 
   def index
     @prototypes = Prototype.all
@@ -15,11 +15,28 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to :root, notice: 'New prototype was successfully created'
     else
-      redirect_to ({ action: new }), alert: 'YNew prototype was unsuccessfully created'
+      render :new, notice: 'New prototype was unsuccessfully created'
      end
   end
 
   def show
+  end
+
+  def destroy
+    @prototype.destroy
+  end
+
+  def edit
+    # @protype_image = CapturedImage.find(params[:id])
+    # @protype.captured_images.cache! unless @prototype.captured_images.blank?
+  end
+
+  def update
+    if @prototype.update(prototype_params)
+      redirect_to prototype_path, notice: 'Update prototype was successfully created'
+    else
+      render :edit
+     end
   end
 
   private
@@ -34,7 +51,7 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:content, :status]
+      captured_images_attributes: [:id, :content, :status, :content_cache]
     )
   end
 end

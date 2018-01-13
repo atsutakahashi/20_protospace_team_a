@@ -9,8 +9,10 @@
           %h4#top-aligned-media.media-heading
             / view/shared/_headerからコピペしてとって来る？
             = @prototype.title
-            = link_to "編集", edit_prototype_path
-            = link_to "削除", prototype_path, method: :delete
+            - if user_signed_in?
+              -if current_user == @prototype.user
+                = link_to "編集", edit_prototype_path
+                = link_to "削除", prototype_path, method: :delete
           .proto-user
             by
             = link_to "#{@prototype.user.name}", user_path(@prototype.user)

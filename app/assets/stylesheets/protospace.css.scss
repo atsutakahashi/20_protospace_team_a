@@ -273,7 +273,7 @@ body {
 .jumbotron {
   background-image: image-url("header_bg.png");
   background-position:  center 92px;
-  background-repeat: no-repeat;
+  // background-repeat: no-repeat;
   background-attachment: fixed;
   background-size:  100% auto;
   padding: 80px 0;
@@ -616,10 +616,13 @@ body {
 /* -- flash messages ------------------------------------ */
 .alert {
   margin: 0;
-  padding: 15px;
+  padding: 10px;
   margin-bottom: 20px;
   border: 1px solid transparent;
+  font-size: 20px;
   border-radius: 4px;
+  background: lightblue;
+  text-align: center;
 
 
 

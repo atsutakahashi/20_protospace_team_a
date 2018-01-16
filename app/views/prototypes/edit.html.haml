@@ -13,9 +13,10 @@
           .cover-image-upload#main_image_uploader
             = f.fields_for :captured_images, @prototype.captured_images.first do |image|
               %img
-              = image.file_field :content, required: true
+              = image.file_field :content
               = image.hidden_field :status, value: "main"
         .col-md-12
+
           %h4 Sub Thumbnails
           %ul.proto-sub-list.list-group
             %li.list-group-item.col-md-4
@@ -38,8 +39,6 @@
                   %img
                   = image.file_field :content
                   = image.hidden_field :status, value: "sub"
-
-
       .row.proto-description
         .col-md-12
           %h4 Catch Copy

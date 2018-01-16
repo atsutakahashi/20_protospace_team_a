@@ -1,0 +1,6 @@
+- if user_signed_in?
+
+- else
+  = button_to prototype_likes_path(@prototype), id: "like-button", remote: true do aaa
+    %span
+      = @prototype.like_user

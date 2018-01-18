@@ -9,7 +9,7 @@ $(document).on('turbolinks:load', function(){
                 </p>`
     return html;
     }
-  $('new_comment').on('submit',function(e){
+  $('#new_comment').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function(){
       $('.textbox').val('')
     })
     .fail(function(){
-      aleat('error');
+      alert('error');
     })
   })
 });

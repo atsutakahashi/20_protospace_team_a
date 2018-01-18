@@ -46,9 +46,9 @@
     - if current_user
       %h4 Comment
       / form_forに書き直す
-      = form_tag("/prototypes/#{@prototype.id}/comments", method: :post) do
+      = form_tag("/prototypes/#{@prototype.id}/comments", method: :post, id: "new_comment") do
         %textarea{:cols => "50", :name => "text", :placeholder => "コメントする", :rows => "5", :class => "textbox"}
-        %input{:type => "submit", :value => "SENT", :class => "new_comment"}/
+        %input{:type => "submit", :value => "SENT"}/
 
     - else
       %h4 Comment

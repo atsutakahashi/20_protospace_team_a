@@ -4,6 +4,18 @@ class CommentsController < ApplicationController
     redirect_to "/prototypes/#{@comment.prototype.id}"
   end
 
+  def edit
+  end
+
+  def update
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to "/prototypes/#{@comment.prototype.id}"
+  end
+
   private
   def comment_params
     params.permit(:text, :prototype_id)

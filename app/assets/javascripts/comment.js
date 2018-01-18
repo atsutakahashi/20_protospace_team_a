@@ -1,18 +1,25 @@
 $(document).on('turbolinks:load', function(){
     function buildHTML(comment){
     var html = `<p>
-                 <strong>
-                  <a href = ${comment.id}${comment.user.name}</a>
-                  :
+                  <strong>
+                    <a href = ${comment.id}>${comment.user_name}</a>
+                    :
+                   ${comment.text}
                   </strong>
-                  ${comment.text}
                 </p>`
     return html;
     }
   $('#new_comment').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
+    var comment = $('.textbox').val();
     var url = $(this).attr('action')
+
+     if (comment.length ==0){
+        alert('Please input comment!!');
+        return false;
+     }
+
     $.ajax({
       url: url,
       type: "POST",
@@ -21,13 +28,15 @@ $(document).on('turbolinks:load', function(){
       processData: false,
       contentType: false
     })
+
     .done(function(data){
       var html = buildHTML(data);
-      $('.comments').append(html)
+      $('.comments-list').append(html)
       $('.textbox').val('')
     })
+
     .fail(function(){
-      alert('error');
+      alert('Please input comment!!');
     })
   })
 });

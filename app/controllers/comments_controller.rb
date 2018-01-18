@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def create
     @comment = Comment.create(text: comment_params[:text], prototype_id: comment_params[:prototype_id], user_id: current_user.id)
-    respomd_to do |format|
+    respond_to do |format|
       format.html { redirect_to "/prototypes/#{@comment.prototype.id}" }
       format.json
     end

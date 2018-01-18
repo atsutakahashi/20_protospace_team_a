@@ -44,26 +44,28 @@
           %a{href: "#", class: "btn btn-default"} wireframe
   .row.comments
     - if current_user
-      %h4 Comment
-      / form_forに書き直す
-      = form_tag("/prototypes/#{@prototype.id}/comments", method: :post, id: "new_comment") do
-        %textarea{:cols => "50", :name => "text", :placeholder => "コメントする", :rows => "5", :class => "textbox"}
-        %input{:type => "submit", :value => "SENT"}/
+      .comment-form
+        %h4 Comment
+        / form_forに書き直す
+        = form_tag("/prototypes/#{@prototype.id}/comments", method: :post, id: "new_comment") do
+          %textarea{cols: "100", name: "text", placeholder: "コメントする", rows: "5" , class: "textbox"}
+          %input{type: "submit", value: "SENT"}/
 
     - else
       %h4 Comment
-      %textarea{:cols => "50", :name => "text", :placeholder => "コメントする", :rows => "5"}
+      %textarea{cols: "100", name: "text", placeholder: "コメントする", rows: "5"}
       = link_to("/users/sign_in") do
-        %input{:type => "submit", :value => "SENT"}/
+        %input{type: "submit", value: "SENT"}/
 
 
-    %h4 Comment List
-    - if @comments
-      - @comments.each do |comment|
-        %p
-          %strong
-          = link_to comment.user.name, "/users/#{comment.user_id}"
-          ：
-          = comment.text
-          = link_to "編集",edit_prototype_comment_path(@prototype,comment.id),method: :get
-          = link_to '削除',prototype_comment_path(@prototype,comment.id),method: :delete
+    .comments-list
+      %h4 Comment List
+      - if @comments
+        - @comments.each do |comment|
+          %p
+            %strong
+              = link_to comment.user.name, "/users/#{comment.user_id}"
+              ：
+              = comment.text
+              = link_to "編集",edit_prototype_comment_path(@prototype,comment.id),method: :get
+              = link_to '削除',prototype_comment_path(@prototype,comment.id),method: :delete

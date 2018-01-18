@@ -426,9 +426,16 @@ body {
       top: 0;
       bottom: 0;
       width: 100%;
+      height: auto;
       opacity: 0;
       filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
       cursor: pointer;
+    }
+
+    img{
+      width:100%;
+      height: 500px;
+      object-fit: contain;
     }
   }
 
@@ -451,6 +458,12 @@ body {
         opacity: 0;
         filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
         cursor: pointer;
+      }
+
+      img{
+        max-width:100%;
+        height:200px;
+        object-fit: contain;
       }
     }
 

@@ -1,14 +1,15 @@
 $(document).on('turbolinks:load', function(){
-    function buildHTML(comment){
-    var html = `<p>
-                  <strong>
-                    <a href = ${comment.id}>${comment.user_name}</a>
-                    :
-                   ${comment.text}
-                  </strong>
-                </p>`
-    return html;
-    }
+  function buildHTML(comment){
+  var html = '<p>' +
+                '<strong>' +
+                  '<a href =' + comment.id + '>' + comment.user_name + '</a>' +
+                  ':' +
+                 comment.text +
+                '</strong>' +
+              '</p>';
+  return html;
+  }
+
   $('#new_comment').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -38,5 +39,9 @@ $(document).on('turbolinks:load', function(){
     .fail(function(){
       alert('Please input comment!!');
     })
+  })
+  $('delete-function').on('click', function(e){
+    e.preeventDefault();
+    $(event.target).remove();
   })
 });

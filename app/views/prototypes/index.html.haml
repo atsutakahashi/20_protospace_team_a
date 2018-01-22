@@ -7,14 +7,13 @@
     .row
       %ul.nav.nav-pills.col-lg-11
         %li.btn-default.btn-popular
-          = link_to "Popular", "#"
-        %li.btn-default.btn-popular
-          = link_to "Newest", "#"
+          = link_to "Popular", popular_prototypes_path, remote:true
+        %li.btn-default.btn-newest
+          = link_to "Newest", root_path, remote: true
       = link_to "VIEW TAGS", "#", class: "btn btn-default col-lg-1"
 
 .container.proto-list
-  .row
-    = render partial: 'prototypes/prototype', collection: @prototypes
+  = render partial: 'prototypes/prototype', collection: @prototypes
 
 .text-center
   %ul.pagination

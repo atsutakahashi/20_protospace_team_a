@@ -653,3 +653,15 @@ body {
 }
 }
 
+.btn-default.btn-popular{
+  :hover{
+    background:pink;
+  }
+}
+
+.btn-default.btn-newest{
+  :hover{
+    background:lightgreen;
+  }
+}
+

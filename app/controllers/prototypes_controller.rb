@@ -21,7 +21,7 @@ class PrototypesController < ApplicationController
 
   def show
     @comments = @prototype.comments.includes(:user)
-    @like = Like.find_by(user_id: current_user.id, prototype_id: @prototype.id)
+    @like = Like.find_by(prototype_id: @prototype.id)
   end
 
   def destroy

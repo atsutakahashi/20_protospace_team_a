@@ -5,6 +5,7 @@ set :application, "20_protospace_team_a"
 set :repo_url, "git@github.com:atsutakahashi/20_protospace_team_a.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
+set :linked_files, %w{ config/secrets.yml }
 
 set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'

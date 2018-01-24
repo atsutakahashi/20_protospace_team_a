@@ -48,10 +48,13 @@
         .col-md-12
           %h4 Tag List
           .col-md-3
-            = f.text_field :tag_ids, required: true, placeholder: "ex) Web"
+            = f.fields_for :tags do |tag|
+              = tag.text_field 0, placeholder: "ex) Web"
           .col-md-3
-            = f.text_field :tag_ids, required: true, placeholder: "ex) Rails"
+            = f.fields_for :tags do |tag|
+              = tag.text_field 1, placeholder: "ex) Rails"
           .col-md-3
-            = f.text_field :tag_ids, required: true, placeholder: "ex) UI/UX"
+            = f.fields_for :tags do |tag|
+              = tag.text_field 2, placeholder: "ex) UI/UX"
       .row.text-center.proto-btn
         = f.submit "PUBLISH", id: "button", class: "btn btn-lg btn-primary btn-block"

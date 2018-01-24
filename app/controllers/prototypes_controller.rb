@@ -5,6 +5,10 @@ class PrototypesController < ApplicationController
     @prototypes = Prototype.order("created_at DESC").page(params[:page]).per(4)
   end
 
+  def popular
+    @prototypes = Prototype.order('like_counts DESC').page(params[:page]).per(4)
+  end
+
   def new
     @prototype = Prototype.new
     @prototype.captured_images.build
@@ -21,6 +25,7 @@ class PrototypesController < ApplicationController
 
   def show
     @comments = @prototype.comments.includes(:user)
+    @like = Like.find_by(prototype_id: @prototype.id)
   end
 
   def destroy

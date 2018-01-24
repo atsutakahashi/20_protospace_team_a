@@ -11,6 +11,6 @@ CarrierWave.configure do |config|
     region: 'ap-northeast-1'
   }
 
-  config.fog_directory  = '20-protospace-team-a'
-  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/20-protospace-team-a'
+  config.fog_directory  = 'protospace-team-a-20'
+  config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/protospace-team-a-20'
 end

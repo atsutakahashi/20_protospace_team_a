@@ -12,10 +12,17 @@ class PrototypesController < ApplicationController
   def new
     @prototype = Prototype.new
     @prototype.captured_images.build
+    @prototype.tags.build
   end
 
   def create
     @prototype = Prototype.new(prototype_params)
+    # # @prototype.tags.each_with_index do |tag, index|
+    # #   if current_tag = Tag.find_by(tags_name: tag.tags_name)
+    # #     @prototype.tags[index].id = current_tag.id
+    #     # @prototype.tags = nil
+    #   end# @prototype.tags.create()
+    # end
     if @prototype.save
       redirect_to :root, notice: 'New prototype was successfully created'
     else
@@ -24,6 +31,7 @@ class PrototypesController < ApplicationController
   end
 
   def show
+    @tag = @prototype.tags
     @comments = @prototype.comments.includes(:user)
     @comment = Comment.new
     @like = Like.find_by(prototype_id: @prototype.id)
@@ -57,7 +65,8 @@ class PrototypesController < ApplicationController
       :catch_copy,
       :concept,
       :user_id,
-      captured_images_attributes: [:id, :content, :status,]
-    )
+      captured_images_attributes: [:id, :content, :status,],
+      tags_attributes: [:id, :tags_name]
+      )  #.merge(params.require(:tags).permit(:tags_name))
   end
 end

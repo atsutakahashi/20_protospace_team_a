@@ -1,18 +1,11 @@
 class TagsController < ApplicationController
 
   def index
+    @tags = Tag.all
   end
 
-  def create
-  end
-
-  def destroy
-  end
-
-  def edit
-  end
-
-  def update
+  def show
+    @prototype = Tag.find(params[:id])
   end
 
 end

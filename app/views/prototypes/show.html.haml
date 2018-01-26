@@ -42,9 +42,13 @@
       %h4 Tag List
       %ul.proto-tag-list.list-inline
         %li
-          %a{href: "#", class: "btn btn-default"} iPad
+          %a{href: "tags_path", class: "btn btn-default"}Tag
         %li
-          %a{href: "#", class: "btn btn-default"} wireframe
+          %a{href: "tags_path", class: "btn btn-default"}Tag
+
+        %li
+          %a{href: "tags_path", class: "btn btn-default"}Tag
+
   .row.comments
     - if current_user
       .comment-form

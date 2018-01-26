@@ -33,6 +33,7 @@ class PrototypesController < ApplicationController
   def show
     @tag = @prototype.tags
     @comments = @prototype.comments.includes(:user)
+    @comment = Comment.new
     @like = Like.find_by(prototype_id: @prototype.id)
   end
 

@@ -1,0 +1,9 @@
+.proto-page
+  .proto-description
+    .row.comments
+    - if current_user
+      .comment-form
+        %h4 Edit Your Comment
+        = form_for [@prototype, @comment] do |f|
+          = f.text_field :text,{class: "edit_comment"}
+          = f.submit "Update",{class: "button"}

@@ -2,9 +2,13 @@ $(document).on('turbolinks:load', function(){
   function buildHTML(comment){
   var html = '<p>' +
                 '<strong>' +
-                  '<a href =' + comment.id + '>' + comment.user_name + '</a>' +
-                  ':' +
-                 comment.text +
+                  comment.user_name +
+                  " " +
+                  comment.text +
+                  " " +
+                  '<a class = "edit-function" data-method = "get" href = /prototypes/'+ comment.prototype_id +'/comments/' + comment.id + '/edit ">編集</a>' +
+                  " " +
+                  '<a class = "delete-function" data-remote= "true" rel= "nofollow" data-method= "delete" href =/prototypes/'+ comment.prototype_id +'/comments/'+ comment.id +'>削除</a>' +
                 '</strong>' +
               '</p>';
   return html;

@@ -12,24 +12,5 @@
           = link_to "Newest", root_path, remote: true
       = link_to "VIEW TAGS", tags_path, class: "btn btn-default col-lg-1"
 
-.container.proto-list
+.container
   = render partial: 'prototypes/prototype', collection: @prototypes
-
-.text-center
-  %ul.pagination
-    =paginate(@prototypes)
-    /  デフォルトのpaginationビューを一応残しておきます
-
-    / %li.disabled
-    /   %a{"aria-label": "Previous", href: "#"}
-    /     %span{"aria-hidden": "true"} «
-    / %li.active
-    /   %a{href: "#"}
-    /     1
-    /     %span.sr-only (current)
-
-
-    / %li
-    /   %a{"aria-label": "Next", href: "#"}
-    /     %span{"aria-hidden": "true"} »
-

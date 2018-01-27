@@ -17,6 +17,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
 gem 'kaminari'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'
@@ -25,6 +26,13 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'faker'
+  
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+  
 end
 
 group :development do
@@ -34,4 +42,5 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end

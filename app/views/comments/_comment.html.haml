@@ -11,7 +11,7 @@
 
 - else
   %h4 Comment
-  %textarea{cols: "100", name: "text", placeholder: "コメントする", rows: "5"}
+  %textarea{cols: "100", name: "text", placeholder: "コメントする", rows: "5", id: "new_comment"}
   = link_to("/users/sign_in") do
     %input{type: "submit", value: "SENT"}/
 
@@ -24,5 +24,6 @@
         %strong
           = comment.user.name
           = comment.text
+        -if current_user == comment.user
           = link_to "編集",edit_prototype_comment_path(prototype,comment.id),method: :get, class: "edit-function"
           = link_to '削除',prototype_comment_path(prototype,comment.id),method: :delete, class: "delete-function", remote:true
